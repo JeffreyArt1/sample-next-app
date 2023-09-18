@@ -5,7 +5,7 @@ type User = { id: string; name: 'string'; email: string };
 type Props = { sort: keyof User };
 
 const UserTable = async ({ sort }: Props) => {
-  const users: Array<User> = await fetch('https://jsonplaceholder.typicode.com/users')
+  const users: Array<User> = await fetch('http://localhost:3000/api/users')
     .then((resp) => resp.json() as Promise<Array<User>>)
     .then((resp) => {
       const canSort = Object.keys(resp[0]).includes(sort);

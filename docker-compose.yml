@@ -1,0 +1,15 @@
+version: '3.9'
+
+services:
+  db:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: prisma
+      MYSQL_DATABASE: next-app
+      MYSQL_USER: prisma
+      MYSQL_PASSWORD: prisma
+    ports:
+      - '3306:3306'
+    volumes:
+      - ./data:/var/lib/mysql
