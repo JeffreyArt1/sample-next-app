@@ -1,0 +1,11 @@
+name: Test
+
+on: push
+
+jobs:
+    versioning:
+        name: Test
+        runs-on: ubuntu-latest
+        steps:
+            - run: |
+                echo ${github.ref_name:0:2}
