@@ -13,7 +13,21 @@ jobs:
               uses: actions/github-script@v6
               with:
                 script: |
-                    // const exec = require('@actions/exec');
-                    const files = await exec.exec('ls').then(f => f.toString().split('\n').filter(Boolean).map((dir) => ({ name: dir })))
+                    let data = '';
+
+                    const options = {
+                      listeners: {
+                        stdout: (data) => {
+                          data += data.toString();
+                        },
+                      },
+                    };
                     
-                    console.log(files);
+                    await exec.exec('ls', [], options);
+                    
+                    const result = data
+                      .split('\n')
+                      .filter(Boolean)
+                      .map((dir) => ({ name: dir }));
+
+                    console.log(result);
