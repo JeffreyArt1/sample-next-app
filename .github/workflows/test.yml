@@ -14,11 +14,11 @@ jobs:
               with:
                 script: |
                     let data = '';
-
+                    
                     const options = {
                       listeners: {
-                        stdout: (data) => {
-                          data += data.toString();
+                        stdout: (d) => {
+                          data += d.toString();
                         },
                       },
                     };
@@ -29,5 +29,5 @@ jobs:
                       .split('\n')
                       .filter(Boolean)
                       .map((dir) => ({ name: dir }));
-
+                    
                     console.log(result);
