@@ -8,4 +8,4 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - run: |
-                echo ${github.ref_name:0:2}
+                echo ${github.ref_name:0:2} | cut -c 1-2
