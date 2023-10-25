@@ -7,8 +7,6 @@ jobs:
         name: Test
         runs-on: ubuntu-latest
         steps:
-            - run: |
-                echo ${{ github.ref_name:0:2 }}
             - uses: actions/checkout@v2
             
             - name: Another test
