@@ -9,3 +9,12 @@ jobs:
         steps:
             - run: |
                 echo ${{ github.ref_name:0:2 }}
+            - uses: actions/checkout@v2
+            
+            - name: Another test
+              uses: actions/github-script@v6
+              with:
+                script: |
+                    // const exec = require('@actions/exec');
+                    
+                    console.log(exec('ls'));
