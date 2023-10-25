@@ -15,4 +15,4 @@ jobs:
                 script: |
                     // const exec = require('@actions/exec');
                     
-                    console.log(exec('ls'));
+                    console.log(exec.exec('ls'));
