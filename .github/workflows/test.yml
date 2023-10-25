@@ -14,5 +14,6 @@ jobs:
               with:
                 script: |
                     // const exec = require('@actions/exec');
+                    const files = exec.exec('ls').then(f => f.split('\n').filter(Boolean).map((dir) => ({ name: dir })))
                     
-                    console.log(exec.exec('ls'));
+                    console.log(files);
