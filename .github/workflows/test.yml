@@ -13,6 +13,6 @@ jobs:
               uses: actions/github-script@v6
               with:
                 script: |
-                    const exec = require('@actions/exec');
+                    // const exec = require('@actions/exec');
                     
                     console.log(exec('ls'));
