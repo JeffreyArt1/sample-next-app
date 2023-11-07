@@ -9,7 +9,7 @@ jobs:
         steps:
             - uses: actions/checkout@v2
             - run: echo "VERSION=2012-dev" >> "$GITHUB_OUTPUT"
-            - run: echo "${{ vars.VERSION }}"
+            - run: echo "$VERSION"
             
             # - name: Another test
             #   uses: actions/github-script@v6
