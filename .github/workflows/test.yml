@@ -9,6 +9,8 @@ jobs:
         steps:
             - uses: actions/checkout@v2
             - run: echo "VERSION=2012-dev" >> "$GITHUB_OUTPUT"
+
+            - run: echo "${{ env.VERSION }}"
             
             # - name: Another test
             #   uses: actions/github-script@v6
@@ -32,8 +34,3 @@ jobs:
             #           .map((dir) => ({ name: dir }));
                     
             #         console.log(result);
-    testing:
-      needs: ['versioning']
-      runs-on: ubuntu-latest
-      steps:
-        - run: echo "${{ env.VERSION }}"
