@@ -33,6 +33,7 @@ jobs:
                     
             #         console.log(result);
     testing:
+      needs: ['versioning']
       runs-on: ubuntu-latest
       steps:
         - run: echo "${{ env.VERSION }}"
