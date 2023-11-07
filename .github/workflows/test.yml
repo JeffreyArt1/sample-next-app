@@ -8,26 +8,31 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v2
+            - run: echo "VERSION=2012-dev" >> "$GITHUB_OUTPUT"
             
-            - name: Another test
-              uses: actions/github-script@v6
-              with:
-                script: |
-                    let data = '';
+            # - name: Another test
+            #   uses: actions/github-script@v6
+            #   with:
+            #     script: |
+            #         let data = '';
                     
-                    const options = {
-                      listeners: {
-                        stdout: (d) => {
-                          data += d.toString();
-                        },
-                      },
-                    };
+            #         const options = {
+            #           listeners: {
+            #             stdout: (d) => {
+            #               data += d.toString();
+            #             },
+            #           },
+            #         };
                     
-                    await exec.exec('ls', [], options);
+            #         await exec.exec('ls', [], options);
                     
-                    const result = data
-                      .split('\n')
-                      .filter(Boolean)
-                      .map((dir) => ({ name: dir }));
+            #         const result = data
+            #           .split('\n')
+            #           .filter(Boolean)
+            #           .map((dir) => ({ name: dir }));
                     
-                    console.log(result);
+            #         console.log(result);
+    testing:
+      runs-on: ubuntu-latest
+      steps:
+        - run: echo "${{ env.VERSION }}"
